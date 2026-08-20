@@ -1,3 +1,39 @@
+'''cv2.inRange()....
+This function applies a spatial binary indiicator accross three chanels across every pixel in the frame. 
+It outputs a single 2D matrix. '''
+
+
+'''cv2.findContours()....
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import cv2 
 import numpy as np 
 
