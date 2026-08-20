@@ -25,7 +25,7 @@ def main():
 
         # Convert to HSV colour space
         # This stands for Hue, Saturation, and Value. It is a cylindrical color space that is often used in computer vision applications because it separates color information (hue) from intensity information (value).
-        hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BAYER_BG2HSV)
+        hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
         # Next must define what constitutes the colour red
         # It must be defined by two ranges as red sits at 0 degrees on the hue spectrum.
@@ -74,7 +74,30 @@ def main():
 
                 # Line from centre to target
                 cv2.line(frame, (centre_x, centre_y), (target_x, target_y), (255, 0, 0), 2)
-                
+                # Now the pixel displacement can be displayed
+
+                error_text = f"dx: {delta_x} px | dy: {delta_y} px"
+                cv2.putText(frame, error_text, (20, 40), 
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+
+        else: 
+            cv2.putText(frame, "Target: Searching...", (20, 40), 
+                     cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
+
+        # Display the live feeds
+        cv2.imshow("Drone Visual Tracker", frame)
+        cv2.imshow("Color Mask (Binary)", mask)
+
+            # Press 'q' to break out of the loop
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # Clean up and release hardware resources
+    cap.release()
+    cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    main()
 
 
 
