@@ -1,37 +1,16 @@
 '''cv2.inRange()....
 This function applies a spatial binary indiicator accross three chanels across every pixel in the frame. 
-It outputs a single 2D matrix. '''
+It outputs a single 2D matrix in HSV form. '''
 
 
 '''cv2.findContours()....
-'''
+This function analyses the 2D matrix and finds a discrete set of points that form the shape.
+It transitions through the binary matrix line until it transitions from a 0 to a 1, and then continues until it transitions back to a 0.
+It eventually creates a parametric curve that binds all the points.'''
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+'''cv2.boundingRect()....
+This function finds the minimum area rectangle that contains all of the points from the contour'''
 
 
 import cv2 
