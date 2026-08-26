@@ -37,6 +37,9 @@ def main():
         height, width, _ = frame.shape
         centre_x = width // 2
         centre_y = height //2
+        if ret:
+            height, width, channels = frame.shape
+            print(f"Active Camera Resolution: {width} x {height}")
 
         # Convert to HSV colour space
         # This stands for Hue, Saturation, and Value. It is a cylindrical color space that is often used in computer vision applications because it separates color information (hue) from intensity information (value).
